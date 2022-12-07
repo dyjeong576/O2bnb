@@ -10,6 +10,10 @@ const startServer = async () => {
   
 	await appDataSource.initialize();
 
+  app.get('/ping', function (req, res, next) {
+    res.json({message : 'pong'})
+  })
+
   app.listen(PORT, () => {
     console.log(`Listening on Port ${PORT}`);
   });
