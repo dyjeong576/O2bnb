@@ -17,6 +17,24 @@ const getUserInfo = async (userId) => {
     return user;
 }
 
+const imageUpload = async (userId) => {
+
+	const [user] = await dataSource.query(`
+        SELECT 
+            email, 
+            birth, 
+            name,
+            profile_image, 
+            created_at 
+        FROM 
+            users 
+        WHERE id = ?;`, [userId]
+	)
+
+    return user;
+}
+
 module.exports = { 
-    getUserInfo
+    getUserInfo,
+    imageUpload
 }

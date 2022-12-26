@@ -17,6 +17,19 @@ const signIn = catchAsync(async (req, res) => {
 
 })
 
+const imageUpload = catchAsync(async(req, res) => {
+
+    const imageInfo = req.file;
+
+    if(imageInfo == undefined) res.status(400).json({message : 'IMAGE_DOESNT_EXISTED'});
+    
+    await userService.imageUpload(imageInfo);
+  
+    res.status(200).json({ message : 'SUCCESS_EDIT_PROFILEIMAGE' });
+
+  })
+
 module.exports = {
-    signIn
+    signIn,
+    imageUpload
 }

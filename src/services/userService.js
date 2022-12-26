@@ -47,6 +47,12 @@ const signIn = async (authCode) => {
 
 }
 
+const imageUpload = async(productId) => {
+    return await userDao.getReviews(imageInfo);
+};
+
+
 module.exports = { 
-    signIn
+    signIn,
+    imageUpload
 }
